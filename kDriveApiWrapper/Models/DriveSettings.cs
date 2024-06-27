@@ -1,3 +1,5 @@
+using kDriveApiWrapper.Models.Trash;
+
 namespace kDriveApiWrapper.Models
 {
     /// <summary>
@@ -24,6 +26,6 @@ namespace kDriveApiWrapper.Models
         /// </summary>
         [JsonPropertyName("trash")]
         [System.ComponentModel.DataAnnotations.Required]
-        public Trash Trash { get; set; } = new Trash();
+        public TrashOption Trash { get; set; } = new TrashOption();
     }
 }

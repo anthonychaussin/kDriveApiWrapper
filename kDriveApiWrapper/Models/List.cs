@@ -1,3 +1,5 @@
+using kDriveApiWrapper.Models.Trash;
+
 namespace kDriveApiWrapper.Models
 {
     /// <summary>
@@ -23,7 +25,7 @@ namespace kDriveApiWrapper.Models
         /// Gets or sets the trash.
         /// </summary>
         [JsonPropertyName("trash")]
-        public Trash2 Trash { get; set; } = default!;
+        public TrashSearch Trash { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the storage_largest.

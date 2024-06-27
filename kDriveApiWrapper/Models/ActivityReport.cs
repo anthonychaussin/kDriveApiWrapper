@@ -3,7 +3,7 @@ namespace kDriveApiWrapper.Models
     /// <summary>
     /// The activity report.
     /// </summary>
-    public partial class ActivityReport : Data
+    public partial class ActivityReport : Activity.Activity
     {
         /// <summary>
         /// Activity report identifier
@@ -22,14 +22,6 @@ namespace kDriveApiWrapper.Models
         public ActivityReportStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// Size in octet of the report
-        /// </summary>
-
-        [JsonPropertyName("size")]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Size { get; set; } = default!;
-
-        /// <summary>
         /// Gets or sets the generated_by.
         /// </summary>
         [JsonPropertyName("generated_by")]
@@ -44,13 +36,6 @@ namespace kDriveApiWrapper.Models
         public string? Download_url { get; set; } = default!;
 
         /// <summary>
-        /// Timestamp `Activity Report` was created at
-        /// </summary>
-
-        [JsonPropertyName("created_at")]
-        public int? Created_at { get; set; } = default!;
-
-        /// <summary>
         /// Timestamp `Activity Report` was updated at
         /// </summary>
 
@@ -63,5 +48,20 @@ namespace kDriveApiWrapper.Models
 
         [JsonPropertyName("filters")]
         public Filters Filters { get; set; } = default!;
+    }
+
+    /// <summary>
+    /// The activity report status.
+    /// </summary>
+    public enum ActivityReportStatus
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"done")]
+        Done = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"failed")]
+        Failed = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"in_progress")]
+        In_progress = 2,
     }
 }

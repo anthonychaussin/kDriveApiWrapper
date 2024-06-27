@@ -1,3 +1,5 @@
+using kDriveApiWrapper.Models.Trash;
+
 namespace kDriveApiWrapper.Models
 {
     /// <summary>
@@ -10,6 +12,6 @@ namespace kDriveApiWrapper.Models
         /// </summary>
 
         [JsonPropertyName("max_duration")]
-        public Body8Max_duration Max_duration { get; set; } = default!;
+        public TrashMaxduration Max_duration { get; set; } = default!;
     }
 }
