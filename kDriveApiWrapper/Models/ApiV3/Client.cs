@@ -1,4 +1,6 @@
-﻿namespace kDriveApiWrapper.Models
+﻿using kDriveApiWrapper.Models.Requests;
+
+namespace kDriveApiWrapper.Models
 {
     /// <summary>
     /// The client.
@@ -27,7 +29,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -54,8 +56,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -83,7 +85,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesFilesAsync(int drive_id, int file_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous12>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous15>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesFilesAsync(int drive_id, int file_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous12>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -91,7 +93,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     // Operation Path: "3/drive/{drive_id}/files/{file_id}/files"
                     var urlBuilder_ = new StringBuilder($"{BaseUrl}3/drive/{Uri.EscapeDataString(ConvertToString(drive_id, CultureInfo.InvariantCulture))}/files/{Uri.EscapeDataString(ConvertToString(file_id, CultureInfo.InvariantCulture))}/files?");
@@ -137,8 +139,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -173,7 +175,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -195,8 +197,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -235,7 +237,7 @@
                     var content_ = new ByteArrayContent(json_);
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -263,8 +265,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -303,7 +305,7 @@
                     var content_ = new ByteArrayContent(json_);
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -331,8 +333,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -373,7 +375,7 @@
                     var content_ = new ByteArrayContent(json_);
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -402,8 +404,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -443,7 +445,7 @@
                     var content_ = new ByteArrayContent(json_);
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -471,8 +473,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -511,7 +513,7 @@
                     if (x_kdrive_file_password != null)
                         request_.Headers.TryAddWithoutValidation("x-kdrive-file-password", ConvertToString(x_kdrive_file_password, CultureInfo.InvariantCulture));
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -539,8 +541,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -580,7 +582,7 @@
                     var content_ = new ByteArrayContent(json_);
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -603,8 +605,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -652,7 +654,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -696,8 +698,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -735,7 +737,7 @@
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Post })
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -765,8 +767,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -809,7 +811,7 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -840,8 +842,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -868,7 +870,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous16>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? modified_after = null, Modified_at? modified_at = null, int? modified_before = null, string? query = null, IEnumerable<Anonymous19>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? modified_after = null, Modified_at? modified_at = null, int? modified_before = null, string? query = null, IEnumerable<Anonymous19>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -876,7 +878,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -942,8 +944,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -970,7 +972,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchDropboxesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous20>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? created_after = null, Created_at? created_at = null, int? created_before = null, Expires? expires = null, Has_password? has_password = null, int? last_import_after = null, Last_import_at? last_import_at = null, int? last_import_before = null, string? query = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchDropboxesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? created_after = null, Created_at? created_at = null, int? created_before = null, Expires? expires = null, Has_password? has_password = null, int? last_import_after = null, Last_import_at? last_import_at = null, int? last_import_before = null, string? query = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -978,7 +980,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1068,8 +1070,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1096,7 +1098,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous23>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, Anonymous26? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous27? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous28>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous27? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous28>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1104,7 +1106,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1194,8 +1196,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1222,7 +1224,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous29>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? created_after = null, Anonymous32? created_at = null, int? created_before = null, Anonymous33? expires = null, Anonymous34? has_password = null, string? query = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? created_after = null, Anonymous32? created_at = null, int? created_before = null, Anonymous33? expires = null, Anonymous34? has_password = null, string? query = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1230,7 +1232,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1308,8 +1310,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1336,7 +1338,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous35>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, Anonymous38? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous39? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous40>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous39? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous40>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1344,7 +1346,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1434,8 +1436,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1462,7 +1464,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous41>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, Anonymous44? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous45? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous46>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous45? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous46>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1470,7 +1472,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1560,8 +1562,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1588,7 +1590,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchTrashAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous47>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? deleted_after = null, Deleted_at? deleted_at = null, int? deleted_before = null, int? deleted_by = null, string? query = null, IEnumerable<Anonymous50>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchTrashAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? deleted_after = null, Deleted_at? deleted_at = null, int? deleted_before = null, int? deleted_by = null, string? query = null, IEnumerable<Anonymous50>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1596,7 +1598,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1674,8 +1676,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1702,7 +1704,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesDropboxesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous51>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous54>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesDropboxesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous51>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1710,7 +1712,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1760,8 +1762,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1788,7 +1790,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous55>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous58>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous55>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1796,7 +1798,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1846,8 +1848,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1882,7 +1884,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -1928,8 +1930,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1964,7 +1966,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2010,8 +2012,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2038,7 +2040,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous65>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous68>? right = null, IEnumerable<Anonymous69>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous65>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous68>? right = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2046,7 +2048,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2100,8 +2102,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2136,7 +2138,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2182,8 +2184,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2210,7 +2212,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous73>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous76>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous73>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2218,7 +2220,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2268,8 +2270,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2296,7 +2298,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous77>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous80>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous77>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2304,7 +2306,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2354,8 +2356,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2395,7 +2397,7 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2421,8 +2423,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2456,7 +2458,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2486,8 +2488,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2532,7 +2534,7 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2552,8 +2554,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2580,7 +2582,7 @@
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveTrashGetAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous81>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous84>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveTrashGetAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<FileTypeEnum>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2588,7 +2590,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2638,8 +2640,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2681,7 +2683,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2712,8 +2714,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2749,7 +2751,7 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = new HttpMethod("GET") })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -2797,8 +2799,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2837,12 +2839,11 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Post })
                 {
-                    {
                         if (if_Match != null)
                             request_.Headers.TryAddWithoutValidation("If-Match", ConvertToString(if_Match, CultureInfo.InvariantCulture));
                         request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                         request_.Method = new HttpMethod("POST");
-                        request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                        
 
                         var urlBuilder_ = new StringBuilder();
                         urlBuilder_.Append(BaseUrl);
@@ -2905,8 +2906,8 @@
                         var disposeResponse_ = true;
                         try
                         {
-                            Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                            return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            
+                            return await ProcessResponse(client_, response_, cancellationToken);
                         }
                         finally
                         {
@@ -2956,7 +2957,6 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Post })
                 {
-                    {
                         if (if_Match != null)
                             request_.Headers.TryAddWithoutValidation("If-Match", ConvertToString(if_Match, CultureInfo.InvariantCulture));
                         var json_ = JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
@@ -2964,7 +2964,7 @@
                         content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                         request_.Content = content_;
                         request_.Method = new HttpMethod("POST");
-                        request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                        
 
                         var urlBuilder_ = new StringBuilder();
                         urlBuilder_.Append(BaseUrl);
@@ -2990,8 +2990,8 @@
                         var disposeResponse_ = true;
                         try
                         {
-                            Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                            return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            
+                            return await ProcessResponse(client_, response_, cancellationToken);
                         }
                         finally
                         {
@@ -3044,13 +3044,12 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Post })
                 {
-                    {
                         var json_ = JsonSerializer.SerializeToUtf8Bytes(body, JsonSerializerSettings);
                         var content_ = new ByteArrayContent(json_);
                         content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                         request_.Content = content_;
                         request_.Method = new HttpMethod("POST");
-                        request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                        
 
                         var urlBuilder_ = new StringBuilder();
                         urlBuilder_.Append(BaseUrl);
@@ -3076,8 +3075,8 @@
                         var disposeResponse_ = true;
                         try
                         {
-                            Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                            return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            
+                            return await ProcessResponse(client_, response_, cancellationToken);
                         }
                         finally
                         {
@@ -3115,10 +3114,9 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Post })
                 {
-                    {
                         request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                         request_.Method = new HttpMethod("POST");
-                        request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                        
 
                         var urlBuilder_ = new StringBuilder();
                         urlBuilder_.Append(BaseUrl);
@@ -3148,8 +3146,8 @@
                         var disposeResponse_ = true;
                         try
                         {
-                            Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                            return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            
+                            return await ProcessResponse(client_, response_, cancellationToken);
                         }
                         finally
                         {
@@ -3191,7 +3189,7 @@
                     var content_ = new ByteArrayContent(json_);
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -3219,8 +3217,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3262,7 +3260,7 @@
                     var content_ = new ByteArrayContent(json_);
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
                     var urlBuilder_ = new StringBuilder();
                     urlBuilder_.Append(BaseUrl);
@@ -3288,8 +3286,8 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        Dictionary<String, IEnumerable<String>> headers_ = ProcessResponse(client_, response_);
-                        return await GetObjectResponse(response_, headers_, cancellationToken).ConfigureAwait(false);
+                        
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {

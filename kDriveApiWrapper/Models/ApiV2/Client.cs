@@ -1,4 +1,6 @@
-﻿namespace kDriveApiWrapper.Models
+﻿using kDriveApiWrapper.Models.Requests;
+
+namespace kDriveApiWrapper.Models
 {
     /// <summary>
     /// The client.
@@ -31,10 +33,9 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Get })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
-
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
                     
+
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     // Operation Path: "2/drive"
                     urlBuilder_.Append("drive");
                     urlBuilder_.Append('?');
@@ -80,7 +81,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -126,9 +127,9 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Get })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/users"
                     urlBuilder_.Append("drive/users");
@@ -174,7 +175,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -216,9 +217,9 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Get })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/users/{user_id}/drives"
                     urlBuilder_.Append("drive/users/");
@@ -262,7 +263,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -296,9 +297,9 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Get })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/preferences"
                     urlBuilder_.Append("drive/preferences");
@@ -320,7 +321,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -358,9 +359,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PATCH");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/preferences"
                     urlBuilder_.Append("drive/preferences");
@@ -376,7 +377,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -410,9 +411,9 @@
             {
                 using (var request_ = new HttpRequestMessage() { Method = HttpMethod.Get })
                 {
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/categories/rights"
                     urlBuilder_.Append("drive/");
@@ -430,7 +431,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -469,9 +470,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/categories/rights"
                     urlBuilder_.Append("drive/");
@@ -489,7 +490,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -524,9 +525,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/categories"
                     urlBuilder_.Append("drive/");
@@ -544,7 +545,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -583,9 +584,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/categories"
                     urlBuilder_.Append("drive/");
@@ -603,7 +604,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -643,9 +644,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/categories/{category_id}"
                     urlBuilder_.Append("drive/");
@@ -664,7 +665,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -700,9 +701,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/categories/{category_id}"
                     urlBuilder_.Append("drive/");
@@ -721,7 +722,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -759,9 +760,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/categories/{category_id}"
                     urlBuilder_.Append("drive/");
@@ -782,7 +783,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -819,9 +820,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/categories/{category_id}"
                     urlBuilder_.Append("drive/");
@@ -842,7 +843,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -878,9 +879,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/categories"
                     urlBuilder_.Append("drive/");
@@ -900,7 +901,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -941,9 +942,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/categories/{category_id}/ai-feedback"
                     urlBuilder_.Append("drive/");
@@ -965,7 +966,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1001,9 +1002,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/account/user"
                     urlBuilder_.Append("drive/");
@@ -1027,7 +1028,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1062,9 +1063,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/settings"
                     urlBuilder_.Append("drive/");
@@ -1082,7 +1083,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1118,9 +1119,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/settings/ai"
                     urlBuilder_.Append("drive/");
@@ -1138,7 +1139,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1174,9 +1175,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/settings/link"
                     urlBuilder_.Append("drive/");
@@ -1194,7 +1195,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1233,9 +1234,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/settings/trash"
                     urlBuilder_.Append("drive/");
@@ -1253,7 +1254,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1292,9 +1293,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}"
                     urlBuilder_.Append("drive/");
@@ -1311,7 +1312,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1360,9 +1361,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users"
                     urlBuilder_.Append("drive/");
@@ -1422,7 +1423,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1450,7 +1451,7 @@
         /// <param name="lang">Override the language of the request, in most cases when an e-mail is triggered in the request.</param>
         /// <returns>Created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveUsersPostAsync(int drive_id, string? with = null, Lang? lang = null, Body10? body = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveUsersPostAsync(int drive_id, string? with = null, Lang? lang = null, Requests.DriveUser? body = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1463,9 +1464,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users"
                     urlBuilder_.Append("drive/");
@@ -1493,7 +1494,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1529,9 +1530,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users/{user_id}"
                     urlBuilder_.Append("drive/");
@@ -1550,7 +1551,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1590,9 +1591,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users/{user_id}"
                     urlBuilder_.Append("drive/");
@@ -1611,7 +1612,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1647,9 +1648,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users/{user_id}"
                     urlBuilder_.Append("drive/");
@@ -1668,7 +1669,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1708,9 +1709,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PATCH");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users/{user_id}/manager"
                     urlBuilder_.Append("drive/");
@@ -1730,7 +1731,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1767,9 +1768,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users/{user_id}/lock"
                     urlBuilder_.Append("drive/");
@@ -1789,7 +1790,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1826,9 +1827,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/users/{user_id}/unlock"
                     urlBuilder_.Append("drive/");
@@ -1848,7 +1849,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1897,9 +1898,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/activities/reports"
                     urlBuilder_.Append("drive/");
@@ -1947,7 +1948,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -1974,7 +1975,7 @@
         /// <param name="lang">Override the language of the request, in most cases when an e-mail is triggered in the request.</param>
         /// <returns>Created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveActivitiesReportsPostAsync(int drive_id, Lang3? lang = null, Body13? body = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveActivitiesReportsPostAsync(int drive_id, Lang? lang = null, Body13? body = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1987,9 +1988,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/activities/reports"
                     urlBuilder_.Append("drive/");
@@ -2013,7 +2014,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2056,9 +2057,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/activities/reports/{report_id}"
                     urlBuilder_.Append("drive/");
@@ -2095,7 +2096,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2131,9 +2132,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/activities/reports/{report_id}"
                     urlBuilder_.Append("drive/");
@@ -2152,7 +2153,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2190,7 +2191,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/csv"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/activities/reports/{report_id}/export"
                     urlBuilder_.Append("drive/");
@@ -2210,7 +2211,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessCsvResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2245,9 +2246,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/sizes"
                     urlBuilder_.Append("drive/");
@@ -2271,7 +2272,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2308,7 +2309,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("text/csv"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/sizes/export"
                     urlBuilder_.Append("drive/");
@@ -2332,7 +2333,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessCsvResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2364,9 +2365,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/activities/users"
                     urlBuilder_.Append("drive/");
@@ -2388,7 +2389,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2420,9 +2421,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/activities/shared_files"
                     urlBuilder_.Append("drive/");
@@ -2444,7 +2445,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2479,9 +2480,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/activities"
                     urlBuilder_.Append("drive/");
@@ -2505,7 +2506,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2542,7 +2543,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("text/csv"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/activities/export"
                     urlBuilder_.Append("drive/");
@@ -2566,7 +2567,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessCsvResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2612,9 +2613,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/activities/links"
                     urlBuilder_.Append("drive/");
@@ -2680,7 +2681,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2712,9 +2713,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/statistics/activities/links/export"
                     urlBuilder_.Append("drive/");
@@ -2752,7 +2753,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2791,9 +2792,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/preferences"
                     urlBuilder_.Append("drive/");
@@ -2811,7 +2812,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2852,9 +2853,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                    var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/cancel"
                     urlBuilder_.Append("drive/");
@@ -2872,7 +2873,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2909,9 +2910,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/access/requests/{request_id}"
                     urlBuilder_.Append("drive/");
@@ -2936,7 +2937,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -2972,9 +2973,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}"
                     urlBuilder_.Append("drive/");
@@ -2993,7 +2994,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3030,9 +3031,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/favorite"
                     urlBuilder_.Append("drive/");
@@ -3052,7 +3053,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3083,7 +3084,7 @@
         /// <param name="file_id">File identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<string>> DriveFilesDownloadAsync(int drive_id, int file_id, As? @as = null, string? x_kdrive_file_password = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Stream>> DriveFilesDownloadAsync(int drive_id, int file_id, As? @as = null, string? x_kdrive_file_password = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -3096,7 +3097,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/octet-stream"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/download"
                     urlBuilder_.Append("drive/");
@@ -3122,7 +3123,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessFileResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3162,9 +3163,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/rename"
                     urlBuilder_.Append("drive/");
@@ -3184,7 +3185,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3211,7 +3212,7 @@
         /// <param name="file_id">File identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSizesAsync(int drive_id, int file_id, Anonymous11? depth = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSizesAsync(int drive_id, int file_id, DepthOption? depth = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -3220,9 +3221,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/sizes"
                     urlBuilder_.Append("drive/");
@@ -3248,7 +3249,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3284,9 +3285,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/hash"
                     urlBuilder_.Append("drive/");
@@ -3306,7 +3307,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3344,9 +3345,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/copy-to-drive"
                     urlBuilder_.Append("drive/");
@@ -3366,7 +3367,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3399,9 +3400,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/temporary_url"
                     urlBuilder_.Append("drive/");
@@ -3427,7 +3428,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3463,9 +3464,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/versions"
                     urlBuilder_.Append("drive/");
@@ -3485,7 +3486,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3525,9 +3526,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/versions/current"
                     urlBuilder_.Append("drive/");
@@ -3547,7 +3548,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3584,9 +3585,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/versions/{version_id}"
                     urlBuilder_.Append("drive/");
@@ -3607,7 +3608,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3648,9 +3649,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/versions/{version_id}"
                     urlBuilder_.Append("drive/");
@@ -3671,7 +3672,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3708,9 +3709,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/versions/{version_id}"
                     urlBuilder_.Append("drive/");
@@ -3731,7 +3732,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3763,7 +3764,7 @@
         /// <param name="version_id">Version identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<string>> DriveFilesVersionsDownloadAsync(int drive_id, int file_id, int version_id, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Stream>> DriveFilesVersionsDownloadAsync(int drive_id, int file_id, int version_id, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -3774,7 +3775,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/octet-stream"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/versions/{version_id}/download"
                     urlBuilder_.Append("drive/");
@@ -3796,7 +3797,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessFileResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3833,9 +3834,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/requests"
                     urlBuilder_.Append("drive/");
@@ -3861,7 +3862,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3902,9 +3903,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/requests"
                     urlBuilder_.Append("drive/");
@@ -3930,7 +3931,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -3967,9 +3968,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access"
                     urlBuilder_.Append("drive/");
@@ -3995,7 +3996,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4024,7 +4025,7 @@
         /// <param name="lang">Override the language of the request, in most cases when an e-mail is triggered in the request.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessPostAsync(int drive_id, int file_id, string? with = null, Lang4? lang = null, Body26? body = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessPostAsync(int drive_id, int file_id, string? with = null, Lang? lang = null, Body26? body = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -4037,9 +4038,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access"
                     urlBuilder_.Append("drive/");
@@ -4069,7 +4070,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4114,9 +4115,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/check"
                     urlBuilder_.Append("drive/");
@@ -4136,7 +4137,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4172,9 +4173,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/invitations"
                     urlBuilder_.Append("drive/");
@@ -4194,7 +4195,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4223,7 +4224,7 @@
         /// <param name="lang">Override the language of the request, in most cases when an e-mail is triggered in the request.</param>
         /// <returns>Created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessInvitationsPostAsync(int drive_id, int file_id, string? with = null, Lang5? lang = null, Body28? body = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessInvitationsPostAsync(int drive_id, int file_id, string? with = null, Lang? lang = null, Body28? body = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -4236,9 +4237,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/invitations"
                     urlBuilder_.Append("drive/");
@@ -4268,7 +4269,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4308,9 +4309,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/invitations/check"
                     urlBuilder_.Append("drive/");
@@ -4330,7 +4331,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4366,9 +4367,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/teams"
                     urlBuilder_.Append("drive/");
@@ -4388,7 +4389,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4417,7 +4418,7 @@
         /// <param name="lang">Override the language of the request, in most cases when an e-mail is triggered in the request.</param>
         /// <returns>Created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessTeamsPostAsync(int drive_id, int file_id, string? with = null, Lang6? lang = null, Body30? body = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessTeamsPostAsync(int drive_id, int file_id, string? with = null, Lang? lang = null, Body30? body = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -4430,9 +4431,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/teams"
                     urlBuilder_.Append("drive/");
@@ -4462,7 +4463,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4503,9 +4504,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/teams/{team_id}"
                     urlBuilder_.Append("drive/");
@@ -4526,7 +4527,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4563,9 +4564,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/teams/{team_id}"
                     urlBuilder_.Append("drive/");
@@ -4586,7 +4587,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4622,9 +4623,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/users"
                     urlBuilder_.Append("drive/");
@@ -4644,7 +4645,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4673,7 +4674,7 @@
         /// <param name="lang">Override the language of the request, in most cases when an e-mail is triggered in the request.</param>
         /// <returns>Created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessUsersPostAsync(int drive_id, int file_id, string? with = null, Lang7? lang = null, Body32? body = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesAccessUsersPostAsync(int drive_id, int file_id, string? with = null, Lang? lang = null, Body32? body = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -4686,9 +4687,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/users"
                     urlBuilder_.Append("drive/");
@@ -4718,7 +4719,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4759,9 +4760,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/users/{user_id}"
                     urlBuilder_.Append("drive/");
@@ -4782,7 +4783,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4819,9 +4820,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/users/{user_id}"
                     urlBuilder_.Append("drive/");
@@ -4842,7 +4843,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4879,9 +4880,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/access/force"
                     urlBuilder_.Append("drive/");
@@ -4901,7 +4902,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -4938,9 +4939,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/link"
                     urlBuilder_.Append("drive/");
@@ -4966,7 +4967,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5006,9 +5007,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/link"
                     urlBuilder_.Append("drive/");
@@ -5028,7 +5029,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5069,9 +5070,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/link"
                     urlBuilder_.Append("drive/");
@@ -5097,7 +5098,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5133,9 +5134,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/link"
                     urlBuilder_.Append("drive/");
@@ -5155,7 +5156,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5195,9 +5196,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/link/invite"
                     urlBuilder_.Append("drive/");
@@ -5217,7 +5218,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5255,9 +5256,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/dropbox"
                     urlBuilder_.Append("drive/");
@@ -5283,7 +5284,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5323,9 +5324,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/dropbox"
                     urlBuilder_.Append("drive/");
@@ -5345,7 +5346,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5386,9 +5387,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/dropbox"
                     urlBuilder_.Append("drive/");
@@ -5408,7 +5409,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5444,9 +5445,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/dropbox"
                     urlBuilder_.Append("drive/");
@@ -5466,7 +5467,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5506,9 +5507,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/dropbox/invite"
                     urlBuilder_.Append("drive/");
@@ -5528,7 +5529,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5578,9 +5579,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments"
                     urlBuilder_.Append("drive/");
@@ -5626,7 +5627,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5667,9 +5668,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments"
                     urlBuilder_.Append("drive/");
@@ -5695,7 +5696,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5745,9 +5746,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments/{comment_id}"
                     urlBuilder_.Append("drive/");
@@ -5794,7 +5795,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5835,9 +5836,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("PUT");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments/{comment_id}"
                     urlBuilder_.Append("drive/");
@@ -5864,7 +5865,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5902,9 +5903,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments/{comment_id}"
                     urlBuilder_.Append("drive/");
@@ -5931,7 +5932,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -5967,9 +5968,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments/{comment_id}"
                     urlBuilder_.Append("drive/");
@@ -5990,7 +5991,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6027,9 +6028,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments/{comment_id}/like"
                     urlBuilder_.Append("drive/");
@@ -6051,7 +6052,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6088,9 +6089,9 @@
                 {
                     request_.Content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/{file_id}/comments/{comment_id}/unlike"
                     urlBuilder_.Append("drive/");
@@ -6112,7 +6113,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6151,9 +6152,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/exists"
                     urlBuilder_.Append("drive/");
@@ -6171,7 +6172,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6200,7 +6201,7 @@
         /// <param name="archive_uuid">Archive uuid</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<string>> DriveFilesArchivesAsync(int drive_id, string archive_uuid, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Stream>> DriveFilesArchivesAsync(int drive_id, string archive_uuid, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -6211,7 +6212,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/zip"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/files/archives/{archive_uuid}"
                     urlBuilder_.Append("drive/");
@@ -6230,7 +6231,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessFileResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6265,9 +6266,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/trash"
                     urlBuilder_.Append("drive/");
@@ -6285,7 +6286,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6320,9 +6321,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/trash/count"
                     urlBuilder_.Append("drive/");
@@ -6340,7 +6341,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6376,9 +6377,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/trash/{file_id}"
                     urlBuilder_.Append("drive/");
@@ -6397,7 +6398,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6438,9 +6439,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/trash/{file_id}/restore"
                     urlBuilder_.Append("drive/");
@@ -6460,7 +6461,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6487,7 +6488,7 @@
         /// <param name="file_id">the file identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<string>> DriveTrashThumbnailAsync(int drive_id, int file_id, int? height = null, int? width = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Stream>> DriveTrashThumbnailAsync(int drive_id, int file_id, int? height = null, int? width = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -6498,7 +6499,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("image/*"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/trash/{file_id}/thumbnail"
                     urlBuilder_.Append("drive/");
@@ -6528,7 +6529,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessFileResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6564,9 +6565,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("GET");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/trash/{file_id}/count"
                     urlBuilder_.Append("drive/");
@@ -6586,7 +6587,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6625,9 +6626,9 @@
                 using (var request_ = new HttpRequestMessage())
                 {
                     request_.Method = new HttpMethod("DELETE");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/drive/{drive_id}/upload/session/{session_token}"
                     urlBuilder_.Append("drive/");
@@ -6646,7 +6647,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6692,9 +6693,9 @@
                     content_.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new HttpMethod("POST");
-                    request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+                    
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/app/{drive_id}/share/{sharelink_uuid}/archive"
                     urlBuilder_.Append("app/");
@@ -6714,7 +6715,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {
@@ -6743,7 +6744,7 @@
         /// <param name="archive_uuid">Archive token</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<string>> TwoAppShareArchiveDownloadAsync(int drive_id, string sharelink_uuid, string archive_uuid, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Stream>> TwoAppShareArchiveDownloadAsync(int drive_id, string sharelink_uuid, string archive_uuid, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -6754,7 +6755,7 @@
                     request_.Method = new HttpMethod("GET");
                     request_.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/zip"));
 
-                    var urlBuilder_ = new StringBuilder(BaseUrl + "2/");
+                   var urlBuilder_ = new StringBuilder($"{BaseUrl}2/");
                     
                     // Operation Path: "2/app/{drive_id}/share/{sharelink_uuid}/archive/{archive_uuid}/download"
                     urlBuilder_.Append("app/");
@@ -6776,7 +6777,7 @@
                     var disposeResponse_ = true;
                     try
                     {
-                        return await GetObjectResponse(response_, ProcessResponse(client_, response_), cancellationToken).ConfigureAwait(false);
+                        return await ProcessFileResponse(client_, response_, cancellationToken);
                     }
                     finally
                     {

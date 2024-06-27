@@ -3,7 +3,7 @@
     /// <summary>
     /// The response.
     /// </summary>
-    public partial class Response<T>
+    public partial class Response
     {
         /// <summary>
         /// Result of the HTTP request
@@ -17,7 +17,7 @@
         /// Gets or sets the data.
         /// </summary>
         [JsonPropertyName("data")]
-        public T Data { get; set; }
+        public Data Data { get; set; }
 
         /// <summary>
         /// Gets or sets the error.
@@ -61,12 +61,5 @@
 
         [JsonPropertyName("items_per_page")]
         public int Items_per_page { get; set; } = default!;
-    }
-
-    /// <summary>
-    /// The response111.
-    /// </summary>
-    public partial class ResponseBool : Response<bool>
-    {
     }
 }

@@ -40,7 +40,7 @@ namespace kDriveApiWrapper.Models
 
         [JsonPropertyName("type")]
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public FileType? Type { get; set; } = default!;
+        public FileTypeEnum? Type { get; set; } = default!;
 
         /// <summary>
         /// Current state of File. The state can be null meaning that the File has no specific state.&lt;note&gt;&lt;strong&gt;erasing&lt;/strong&gt;: File is currently being erased from the drive.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;locked&lt;/strong&gt;: File is currently locked. No action can be made except unlocking by the application which locked the File (such as office, webdav or external import).&lt;/note&gt;&lt;note&gt;&lt;strong&gt;trash_inherited&lt;/strong&gt;: File is currently in trash because a parent directory was trashed.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;trashed&lt;/strong&gt;: File is currently in trash and specifically trashed by the user.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;uploading&lt;/strong&gt;: File is currently being uploaded. The File is locked and no action can be done excepting upload actions.&lt;/note&gt;
@@ -182,7 +182,7 @@ namespace kDriveApiWrapper.Models
         /// </summary>
 
         [JsonPropertyName("activity")]
-        public Activity2 Activity { get; set; } = default!;
+        public Activity.Activity Activity { get; set; } = default!;
 
         /// <summary>
         /// Gets or sets the sharelink.

@@ -6,6 +6,7 @@
 
     public partial class BaseClient
     {
+        private readonly IRequestContext _requestContext;
         private string _baseUrl = "/";
         internal HttpClient _httpClient;
         private static Lazy<JsonSerializerOptions> _settings = new(CreateSerializerSettings, true);
@@ -68,6 +69,25 @@
         /// <summary>
         /// Prepares the request.
         /// </summary>
+        /// <param name="request">The request.</param>
+        /// <param name="url">The url.</param>
+        internal partial void PrepareRequest(HttpClient client, HttpRequestMessage request, string url)
+        {
+            if(request.Method == HttpMethod.Get)
+            {
+                request.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+            }
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _requestContext.GetBearerTokenOrTriggerUnauthException());
+        }
+
+        internal partial void PrepareRequest(HttpClient client, HttpRequestMessage request, StringBuilder urlBuilder)
+        {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _requestContext.GetBearerTokenOrTriggerUnauthException());
+        }
+
+        /// <summary>
+        /// Prepares the request.
+        /// </summary>
         /// <param name="client">The client.</param>
         /// <param name="request">The request.</param>
         /// <param name="urlBuilder">The url builder.</param>
@@ -78,7 +98,37 @@
         /// </summary>
         /// <param name="client">The client.</param>
         /// <param name="response">The response.</param>
-        internal partial Dictionary<String, IEnumerable<String>> ProcessResponse(HttpClient client, HttpResponseMessage response);
+        internal partial Task<SwaggerResponse<Response>> ProcessResponse(HttpClient client, HttpResponseMessage response, CancellationToken cancellationToken);
+        internal partial Task<SwaggerResponse<string>> ProcessCsvResponse(HttpClient client, HttpResponseMessage response, CancellationToken cancellationToken);
+        /// <summary>
+        /// Processes the file response.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="response">The response.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task.</returns>
+        internal partial Task<SwaggerResponse<Stream>> ProcessFileResponse(HttpClient client, HttpResponseMessage response, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Processes the response.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="response">The response.</param>
+        /// <returns>A Dictionary.</returns>
+        internal partial async Task<SwaggerResponse<Response>> ProcessResponse(HttpClient client, HttpResponseMessage response, CancellationToken cancellationToken)
+        {
+            return await GetObjectResponse(response, response.Headers.ToDictionary(), cancellationToken);
+        }
+
+        internal partial async Task<SwaggerResponse<string>> ProcessCsvResponse(HttpClient client, HttpResponseMessage response, CancellationToken cancellationToken)
+        {
+            return await GetObjectResponse(response, response.Headers.ToDictionary(), cancellationToken);
+        }
+
+        internal partial async Task<SwaggerResponse<Stream>> ProcessFileResponse(HttpClient client, HttpResponseMessage response, CancellationToken cancellationToken)
+        {
+            return await GetObjectResponse(response, response.Headers.ToDictionary(), cancellationToken);
+        }
 
         /// <summary>
         /// Gets the object response.
@@ -87,10 +137,10 @@
         /// <param name="headers_">The headers_.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task.</returns>
-        internal async Task<SwaggerResponse<Response<T>>> GetObjectResponse<T>(HttpResponseMessage response_, Dictionary<String, IEnumerable<String>> headers_, CancellationToken cancellationToken)
+        private async Task<SwaggerResponse<Response>> GetObjectResponse(HttpResponseMessage response_, Dictionary<String, IEnumerable<String>> headers_, CancellationToken cancellationToken)
         {
             var status_ = (int)response_.StatusCode;
-            var objectResponse_ = await ReadObjectResponseAsync<Response<T>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+            var objectResponse_ = await ReadObjectResponseAsync<Response>(response_, headers_, cancellationToken).ConfigureAwait(false);
             CheckNullResponse(status_, objectResponse_, headers_);
 
             switch (status_)
@@ -98,43 +148,43 @@
                 case 200:
                 case 201:
                     {
-                        return new SwaggerResponse<Response<T>>(status_, headers_, objectResponse_.Object);
+                        return new SwaggerResponse<Response>(status_, headers_, objectResponse_.Object);
                     }
 
                 case 400:
                     {
-                        throw new ApiException<Response<Error>>("Cannot get a temporary url for a directory", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        throw new ApiException<Response>("Cannot get a temporary url for a directory", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                     }
 
                 case 403:
                     {
-                        throw new ApiException<Response<Error>>("Forbidden", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        throw new ApiException<Response>("Forbidden", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                     }
 
                 case 404:
                     {
-                        throw new ApiException<Response<Error>>("Not Found", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        throw new ApiException<Response>("Not Found", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                     }
 
                 case 409:
                     {
-                        throw new ApiException<Response<Error>>("Conflict", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        throw new ApiException<Response>("Conflict", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                     }
 
                 case 417:
                 case 429:
                     {
-                        throw new ApiException<Response<Error>>("Response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        throw new ApiException<Response>("Response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                     }
 
                 case 500:
                     {
-                        throw new ApiException<Response<Error>>("Internal Server Error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        throw new ApiException<Response>("Internal Server Error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                     }
 
                 case 503:
                     {
-                        throw new ApiException<Response<Error>>("Service Unavailable", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        throw new ApiException<Response>("Service Unavailable", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                     }
 
                 default:
@@ -288,6 +338,11 @@
             return result ?? "";
         }
 
+        /// <summary>
+        /// Gets the headers.
+        /// </summary>
+        /// <param name="response_">The response_.</param>
+        /// <returns>A Dictionary.</returns>
         internal static Dictionary<String, IEnumerable<String>> GetHeaders(HttpResponseMessage response_)
         {
             var headers_ = new Dictionary<string, IEnumerable<string>>();
