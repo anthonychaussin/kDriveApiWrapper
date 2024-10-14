@@ -8,6 +8,10 @@ namespace kDriveApiWrapper.Models
 
     public partial class Client : BaseClient
     {
+        public Client(HttpClient httpClient) : base(httpClient)
+        {
+        }
+
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
         /// Accessible drives
@@ -209,7 +213,7 @@ namespace kDriveApiWrapper.Models
         /// <br/>&lt;note&gt;You can also use ?with=total parameter&lt;/note&gt;</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveUsersDrivesAsync(int user_id, int account_id, string? with = null, IEnumerable<UserAdministrationLevel>? roles = null, IEnumerable<Anonymous2>? status = null, int? page = null, int? per_page = null, bool? total = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveUsersDrivesAsync(int user_id, int account_id, string? with = null, IEnumerable<UserAdministrationLevel>? roles = null, IEnumerable<UserAccess>? status = null, int? page = null, int? per_page = null, bool? total = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1352,7 +1356,7 @@ namespace kDriveApiWrapper.Models
         /// <br/>Part of the `sort` capacity</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveUsersGetAsync(int drive_id, string? with = null, string? search = null, IEnumerable<Anonymous3>? status = null, IEnumerable<Anonymous4>? types = null, IEnumerable<int>? user_ids = null, int? page = null, int? per_page = null, bool? total = null, string? order_by = null, Order? order = null, object? order_for = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveUsersGetAsync(int drive_id, string? with = null, string? search = null, IEnumerable<UserStatusType>? status = null, IEnumerable<DriveUserType>? types = null, IEnumerable<int>? user_ids = null, int? page = null, int? per_page = null, bool? total = null, string? order_by = null, Order? order = null, object? order_for = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2237,7 +2241,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="drive_id">Drive identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveStatisticsSizesAsync(int drive_id, int from, int interval, IEnumerable<Anonymous6> metrics, int until, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveStatisticsSizesAsync(int drive_id, int from, int interval, IEnumerable<FileMetricType> metrics, int until, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2298,7 +2302,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="drive_id">Drive identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<string>> DriveStatisticsSizesExportAsync(int drive_id, int from, int interval, IEnumerable<Anonymous7> metrics, int until, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<string>> DriveStatisticsSizesExportAsync(int drive_id, int from, int interval, IEnumerable<StatisticMetricSizeType> metrics, int until, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2532,7 +2536,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="drive_id">Drive identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<string>> DriveStatisticsActivitiesExportAsync(int drive_id, int from, int interval, Anonymous8 metric, int until, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<string>> DriveStatisticsActivitiesExportAsync(int drive_id, int from, int interval, ActivityMetricsType metric, int until, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2604,7 +2608,7 @@ namespace kDriveApiWrapper.Models
         /// <br/>Part of the `sort` capacity</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveStatisticsActivitiesLinksAsync(int drive_id, int from, int until, string? with = null, int? max_view = null, int? min_view = null, IEnumerable<Anonymous9>? rights = null, string? search = null, string? valid_until = null, int? page = null, int? per_page = null, bool? total = null, string? order_by = null, Order? order = null, object? order_for = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveStatisticsActivitiesLinksAsync(int drive_id, int from, int until, string? with = null, int? max_view = null, int? min_view = null, IEnumerable<SharelinkRightType>? rights = null, string? search = null, string? valid_until = null, int? page = null, int? per_page = null, bool? total = null, string? order_by = null, Order? order = null, object? order_for = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2704,7 +2708,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="drive_id">Drive identifier</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveStatisticsActivitiesLinksExportAsync(int drive_id, int from, int until, int? max_view = null, int? min_view = null, IEnumerable<Anonymous9>? rights = null, string? valid_until = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveStatisticsActivitiesLinksExportAsync(int drive_id, int from, int until, int? max_view = null, int? min_view = null, IEnumerable<SharelinkRightType>? rights = null, string? valid_until = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;

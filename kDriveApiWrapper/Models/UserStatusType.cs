@@ -3,7 +3,7 @@ namespace kDriveApiWrapper.Models
     /// <summary>
     /// The anonymous3.
     /// </summary>
-    public enum Anonymous3
+    public enum UserStatusType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"active")]
         Active = 0,

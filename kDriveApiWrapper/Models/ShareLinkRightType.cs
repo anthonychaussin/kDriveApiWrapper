@@ -4,7 +4,7 @@ namespace kDriveApiWrapper.Models
     /// Rights required to view the share link.&lt;note&gt;&lt;strong&gt;inherit&lt;/strong&gt;: Share link is accessible only by users of the drive.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;password&lt;/strong&gt;: Share link is public but protected by a password.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;public&lt;/strong&gt;: Share link is public, no restriction set.&lt;/note&gt;
     /// </summary>
 
-    public enum Anonymous9
+    public enum ShareLinkRightType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"inherit")]
         Inherit = 0,

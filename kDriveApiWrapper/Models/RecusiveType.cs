@@ -1,10 +1,10 @@
 namespace kDriveApiWrapper.Models
 {
     /// <summary>
-    /// To search files recursively (use &lt;strong&gt;unlimited&lt;/strong&gt;) or to search files in the first directory (use &lt;strong&gt;child&lt;/strong&gt;)
+    /// To search files recursively (use unlimited) or to search files in the first directory (use child)
     /// </summary>
 
-    public enum Anonymous26
+    public enum RecusiveType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"child")]
         Child = 0,

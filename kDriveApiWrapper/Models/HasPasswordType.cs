@@ -4,7 +4,7 @@ namespace kDriveApiWrapper.Models
     /// Whether the `Dropbox` has password protection
     /// </summary>
 
-    public enum Anonymous34
+    public enum HasPasswordType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"any")]
         Any = 0,

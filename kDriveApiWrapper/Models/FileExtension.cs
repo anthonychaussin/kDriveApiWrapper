@@ -4,7 +4,7 @@ namespace kDriveApiWrapper.Models
     /// The wanted file extension type or file type
     /// </summary>
 
-    public enum Anonymous19
+    public enum FileExtension
     {
         [System.Runtime.Serialization.EnumMember(Value = @"archive")]
         Archive = 0,

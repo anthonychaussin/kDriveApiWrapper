@@ -85,7 +85,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesFilesAsync(int drive_id, int file_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous12>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesFilesAsync(int drive_id, int file_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<DriveFieOrder>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -870,7 +870,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? modified_after = null, Modified_at? modified_at = null, int? modified_before = null, string? query = null, IEnumerable<Anonymous19>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? modified_after = null, Modified_at? modified_at = null, int? modified_before = null, string? query = null, IEnumerable<FileExtension>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1098,7 +1098,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous27? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous28>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, TimeType? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<FileExtensionType>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1224,7 +1224,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? created_after = null, Anonymous32? created_at = null, int? created_before = null, Anonymous33? expires = null, Anonymous34? has_password = null, string? query = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? created_after = null, TimeType? created_at = null, int? created_before = null, ExpirationType? expires = null, HasPasswordType? has_password = null, string? query = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1338,7 +1338,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous39? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous40>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, TimeType? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<FileExtensionType>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1464,7 +1464,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, Anonymous45? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<Anonymous46>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, DepthOption? depth = null, int? directory_id = null, IEnumerable<string>? extensions = null, int? modified_after = null, TimeType? modified_at = null, int? modified_before = null, string? name = null, string? query = null, IEnumerable<FileExtensionType>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1590,7 +1590,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchTrashAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? deleted_after = null, Deleted_at? deleted_at = null, int? deleted_before = null, int? deleted_by = null, string? query = null, IEnumerable<Anonymous50>? types = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSearchTrashAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SearchFileOrderParam>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, int? author_id = null, string? category = null, int? deleted_after = null, Deleted_at? deleted_at = null, int? deleted_before = null, int? deleted_by = null, string? query = null, IEnumerable<FileExtensionType>? types = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1704,7 +1704,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesDropboxesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous51>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesDropboxesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<DropBoxOrderByType>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1790,7 +1790,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous55>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesFavoritesAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<FavoritFileOrderByType>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1876,7 +1876,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesLargestAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous59>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesLargestAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<SizeOrder>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1958,7 +1958,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesLastModifiedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous62>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesLastModifiedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<OrderByLastModifiedAt>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2040,7 +2040,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous65>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<Anonymous68>? right = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesLinksAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<ShareLinkOrderByType>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<ShareLinkRightType>? right = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2130,7 +2130,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesMostVersionsAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous70>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesMostVersionsAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<OrderNbVersionType>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2212,7 +2212,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous73>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesMySharedAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<ShareLinkOrderByType>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2298,7 +2298,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveFilesSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous77>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveFilesSharedWithMeAsync(int drive_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<ShareLinkOrderByType>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, IEnumerable<FileTypeEnum>? type = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -2743,7 +2743,7 @@ namespace kDriveApiWrapper.Models
         /// <param name="with">*Optional* : Allows loading additional data about a resource, which may include related resources.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async Task<SwaggerResponse<Response>> DriveTrashFilesAsync(int drive_id, int file_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<Anonymous85>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
+        public virtual async Task<SwaggerResponse<Response>> DriveTrashFilesAsync(int drive_id, int file_id, string? with = null, string? cursor = null, int? limit = null, IEnumerable<FileTrashOrderByType>? order_by = null, Direction? order = null, IEnumerable<Direction>? order_for = null, CancellationToken cancellationToken = default)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;

@@ -4,7 +4,7 @@ namespace kDriveApiWrapper.Models
     /// Whether the `Dropbox` has an expiration date
     /// </summary>
 
-    public enum Anonymous33
+    public enum ExpirationType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"any")]
         Any = 0,

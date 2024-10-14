@@ -4,7 +4,7 @@ namespace kDriveApiWrapper.Models
     /// Current access status of the user in the drive.&lt;note&gt;&lt;strong&gt;active&lt;/strong&gt;: User has access to the Drive.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;deleted_kept&lt;/strong&gt;: User has been removed but his data remain in the drive.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;deleted_removed&lt;/strong&gt;: User has been removed.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;deleted_transferred&lt;/strong&gt;: User has been removed and his data has been transferred to another user.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;deleted_transferring&lt;/strong&gt;: User has been removed and is being transferred to another user.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;locked&lt;/strong&gt;: User has been locked, user can no longer access to the drive.&lt;/note&gt;&lt;note&gt;&lt;strong&gt;pending&lt;/strong&gt;: User has not accepted the invitation request.&lt;/note&gt;
     /// </summary>
 
-    public enum Anonymous2
+    public enum UserAccess
     {
         [System.Runtime.Serialization.EnumMember(Value = @"active")]
         Active = 0,

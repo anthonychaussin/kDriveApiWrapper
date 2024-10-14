@@ -3,7 +3,7 @@ namespace kDriveApiWrapper.Models
     /// <summary>
     /// The anonymous7.
     /// </summary>
-    public enum Anonymous7
+    public enum StatisticMetricSizeType
     {
         [System.Runtime.Serialization.EnumMember(Value = @"files")]
         Files = 0,
